@@ -87,7 +87,7 @@ const CartList = ({items}) => {
                      <button onClick={(e)=>increaseHandler(e,item)}><Plus/></button>
                  </div>
              </td>
-             <td className='text-center'><h3>${parseFloat(item.price.replace('$', '').replace(',', '')) * item.quantity}.00</h3></td>
+             <td className='text-center'><h3>${parseFloat(item.price) * item.quantity}.00</h3></td>
              <td className='text-center'><button onClick={(e)=>RemoveItemHandler(e,item)}><X size={23}/></button></td>
          </tr>
            ))}
@@ -120,7 +120,7 @@ const CartList = ({items}) => {
                 </tr>
                 <tr>
                     <th>Sub Total</th>
-                    <td><h3>${parseFloat(item.price.replace('$', '').replace(',', '')) * item.quantity}.00</h3></td>
+                    <td><h3>${parseFloat(item.price) * item.quantity}.00</h3></td>
                 </tr>
                 <tr>
                     <th>Remove</th>

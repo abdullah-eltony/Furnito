@@ -2,7 +2,7 @@
 import { Search , X} from 'react-bootstrap-icons';
 
 // ** hooks
-import { useRef, useState } from 'react';
+import {  useRef, useState } from 'react';
 
 // ** Components
 import ProductSuggustion from './ProductSuggustion';

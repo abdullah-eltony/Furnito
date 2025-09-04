@@ -23,6 +23,29 @@ ul {
   margin:0 !important;
   list-style: none;
 }
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--main-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #41796e;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-bg);
+}
+
+html {
+  scrollbar-color: var(--main-color) var(--main-bg);
+  scrollbar-width: thin;
+}
 .overlay {
   position: fixed;
     top: 0;

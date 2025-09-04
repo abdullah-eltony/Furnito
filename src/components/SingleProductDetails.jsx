@@ -119,7 +119,6 @@ const SingleProductDetails = ({img,name,price,altPrice,sales , object}) => {
             <div className="product__info ms-0 ms-lg-5 mt-5 mt-lg-0">
                 <div className="mb-4">
                     <h2>{name}</h2>
-                    <span className='product__sales position-relative top-0 end-0'>{sales}</span>
                 </div>
                 <div className='mt-3'>
                     <span className='me-4 fw-semibold text-secondary'>Status</span>

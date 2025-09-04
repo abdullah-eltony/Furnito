@@ -17,7 +17,7 @@ const TotalPrice = () => {
 
   // ** calculate total price
   cartList.forEach(item=>{
-    total+=parseFloat(item.price.replace('$', '').replace(',', '')) * item.quantity;
+    total+=parseFloat(item.price) * item.quantity;
   })
 
   return (

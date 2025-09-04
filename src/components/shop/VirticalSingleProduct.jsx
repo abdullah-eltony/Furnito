@@ -18,7 +18,7 @@ import './shop.css'
 import { useDispatch, useSelector } from 'react-redux'
 
 
-const VirticalSingleProduct = ({img,title,sales,hasBtn,price,altPrice,isBlog , object,id}) => {
+const VirticalSingleProduct = ({img,title,hasBtn,price,altPrice,isBlog , object,id}) => {
 
     // hooks
     const navigat = useNavigate()
@@ -94,7 +94,6 @@ const VirticalSingleProduct = ({img,title,sales,hasBtn,price,altPrice,isBlog , o
         <div className="col-12 col-lg-6 p-0">
             <div className="product__img position-relative">
                 <img src={img} alt="product"/>
-                {sales && <span className='product__sales'>{sales}</span>}
             </div>
         </div>
         <div className="col-12 col-lg-6">
@@ -102,7 +101,7 @@ const VirticalSingleProduct = ({img,title,sales,hasBtn,price,altPrice,isBlog , o
                 <div className="product-body pt-3 border-bottom-1">
                     <h3 className='product__name'><a href="/">{title}</a></h3>
                     <div className='product__tax justify-content-start'>
-                        <span className='price'>{price}</span>
+                        <span className='price'>${price}</span>
                         <span className='altPrice'>{altPrice}</span>
                     </div>
                 </div>

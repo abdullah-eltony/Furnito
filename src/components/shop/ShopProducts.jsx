@@ -37,15 +37,15 @@ const ShopProducts = ({filterData , resetData , getSortValue , isSort}) => {
         let result;
         const getProductds = async()=>{
             try {
-                if(filterData === '' || filterData === undefined) {
-                    result = await axios.get(`https://my-server-rc7a.onrender.com/Store?catigory=All`)
+                if(filterData === '' || filterData === undefined || filterData=== 'All') {
+                    result = await axios.get(`http://localhost:5000/gallary-products`)
                 }else if(isPrice) {
-                    result = await axios.get(`https://my-server-rc7a.onrender.com/Store?price_gte=${0}&price_lte=${parseFloat(filterData)}`)
+                    result = await axios.get(`http://localhost:5000/gallary-products?price_gte=${0}&price_lte=${parseFloat(filterData)}`)
                 }else if(isSort) {
-                    result = await axios.get(`https://my-server-rc7a.onrender.com/Store?_sort=${filterData}&_order=asc`)
+                    result = await axios.get(`http://localhost:5000/gallary-products?_sort=${filterData}&_order=asc`)
                 }
                 else
-                 result = await axios.get(`https://my-server-rc7a.onrender.com/Store?q=${filterData}`)
+                 result = await axios.get(`http://localhost:5000/gallary-products?catigory=${filterData}`)
                     setProducts(result.data)
                     setIsLoading(false)
                 }catch(Err) {console.log(Err)}
@@ -70,9 +70,8 @@ const ShopProducts = ({filterData , resetData , getSortValue , isSort}) => {
                         img={product.img}
                         price={product.price}
                         altPrice={product.altPrice}
-                        sales={product.sales}
                         isSlider={true}
-                        title={product.name}
+                        title={product.title}
                         customStyle={false}
                         hasBtn={true}
                         object={product}
@@ -88,7 +87,7 @@ const ShopProducts = ({filterData , resetData , getSortValue , isSort}) => {
                         altPrice={product.altPrice}
                         sales={product.sales}
                         isSlider={true}
-                        title={product.name}
+                        title={product.title}
                         customStyle={true}
                         object={product}
                         />

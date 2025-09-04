@@ -21,7 +21,7 @@ const TrendyProduct = () => {
   useEffect(()=>{
     const getProducts = async()=>{
       try {
-        const result = await axios.get('https://my-server-rc7a.onrender.com/TrendyProducts')
+        const result = await axios.get('http://localhost:5000/trendy-products')
         setProducts(result.data)
       }catch(err) {
         console.log(err)
@@ -35,13 +35,13 @@ const TrendyProduct = () => {
         <div className="container">
             <div className="section-title">
                 <h3 className='fs-2'>Trendy Product</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae vivamus morbi et ornare est Orci et sed commodo.</p>
+                <p>Upgrade your lifestyle with our trendy products that blend functionality with modern</p>
             </div>
             <div className="row w-100 justify-content-start m-0">
               {porducts.map(product=>(
                 <TrendySingleProduct key={product.id} 
                 id={product.id} img={product.img} 
-                title={product.name} price={product.price}
+                title={product.title} price={product.price}
                 altPrice={product.altPrice} 
                 sales={product.sales}
                 trendy={true}

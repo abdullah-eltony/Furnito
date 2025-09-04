@@ -37,7 +37,7 @@ const OrdarSummary = () => {
     // ** vars
     var total  = 0;
     cartList.forEach(item=>{
-      total+=parseFloat(item.price.replace('$', '').replace(',', '')) * item.quantity;
+      total+=parseFloat(item.price) * item.quantity;
     })
 
     const selectMethod =(e)=>{

@@ -16,7 +16,7 @@ const AccordinItems = ({getCategory , getPrice , getTag , getRate ,getColor}) =>
 
     // stats
     const [categories, setCategories] =  useState([])
-    const [priceValue , setPriceValue] = useState(0)
+    const [priceValue , setPriceValue] = useState(500)
 
 
     // ** functions
@@ -48,7 +48,7 @@ const AccordinItems = ({getCategory , getPrice , getTag , getRate ,getColor}) =>
     useEffect(()=>{
         const getCatigories = async()=>{
             try {
-                const result = await axios.get('https://my-server-rc7a.onrender.com/Catigory')
+                const result = await axios.get('http://localhost:5000/catigories')
                 setCategories(result.data)
             }catch(err) {
                 console.log(err)
@@ -96,19 +96,6 @@ const AccordinItems = ({getCategory , getPrice , getTag , getRate ,getColor}) =>
                             <input type="range" min="0" max="10000" className='p-0 w-100' value={priceValue} onChange={handleChangePrice}/>
                             <div className='price d-flex align-items-center gap-2 mt-2'> <h5>price: <span className='fw-semibold'>$0 - <strong>{priceValue}$</strong></span></h5></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div className="accordion" id="accordionExample3">
-                <div className="accordion-item">
-                    <h2 className="accordion-header" id="headinthree">
-                    <button className="accordion-button border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree">
-                    Size
-                    </button>
-                    </h2>
-                    <div id="collapsethree" className="accordion-collapse collapse show" aria-labelledby="headingthree" data-bs-parent="#accordionExample2">
                     </div>
                 </div>
             </div>

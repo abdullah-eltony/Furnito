@@ -23,7 +23,7 @@ const Carousel = () => {
                     <div className="col-12 col-lg-6 order-2 order-lg-0">
                         <div className="carousel__text-content">
                             <h1 className='carousel__title animate__animated animate__flipInX'>Decorate Your Home</h1>
-                            <p className='carousel__subtitle mt-3'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat pulvinar enim hendrerit pellentesque Pharetra consectetur quam.</p>
+                            <p className='carousel__subtitle mt-3'> Transform your living space with stylish furniture and modern décor. Discover pieces that bring comfort, elegance, and personality to your home</p>
                             <CustomBtn title='Shop Now' styleContainer='carousel__btn custom-btn animate__animated animate__zoomIn'/>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ const Carousel = () => {
                     <div className="col-12 col-lg-6 order-2 order-lg-0">
                         <div className="carousel__text-content">
                             <h1 className='carousel__title animate__animated animate__flipInX'>Decorate Your Home</h1>
-                            <p className='carousel__subtitle mt-3'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat pulvinar enim hendrerit pellentesque Pharetra consectetur quam.</p>
+                            <p className='carousel__subtitle mt-3'> Transform your living space with stylish furniture and modern décor. Discover pieces that bring comfort, elegance, and personality to your home</p>
                             <CustomBtn title='Shop Now' styleContainer='carousel__btn custom-btn animate__animated animate__zoomIn'/>
                         </div>
                     </div>

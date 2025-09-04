@@ -15,7 +15,7 @@ const CustomCarousel = ({products}) => {
         items.push(<TrendySingleProduct 
             key={i} 
             img={products[i].img}
-            title={products[i].name}
+            title={products[i].title}
             price={products[i].price}
             altPrice={products[i].altPrice}
             sales={products[i].sales}

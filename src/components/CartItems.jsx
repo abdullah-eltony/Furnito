@@ -20,7 +20,7 @@ const CartItems = () => {
   cartList.forEach(item=>{
 
     //calculate the total price
-    total+=parseFloat(item.price.replace('$', '').replace(',', '')) * item.quantity;
+    total+=parseFloat(item.price) * item.quantity;
   })
   return (
     <li className='position-relative cart'>
@@ -36,7 +36,7 @@ const CartItems = () => {
                     <CartItem 
                     key={product.id}
                      img={product.img}
-                      name={product.name}
+                      name={product.title}
                        price={product.price}
                         qty={product.quantity}
                         />

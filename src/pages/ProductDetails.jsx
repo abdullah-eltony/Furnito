@@ -1,5 +1,5 @@
 // ** Compontes
-import { BreadCrumb, CustomCarousel , Loader, TapsDetails} from '../components'
+import { BreadCrumb, CustomCarousel, Loader, TapsDetails } from '../components'
 import SingleProductDetails from '../components/SingleProductDetails'
 
 // ** react Hooks & custom Hooks
@@ -17,39 +17,35 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 
 const ProductDetails = () => {
-  
+
   // ** store
-  const {loading}  = useSelector(state=>state.LoaderReducer)
+  const { loading } = useSelector(state => state.LoaderReducer)
 
   // ** vars
-  let {id} = useParams();
+  let { id } = useParams();
   id = id.match(/\d+/g)[0];
-  
+
   // ** states
-  const [targetProduct , setTargetProduct] = useState({})
-  const [filtredProducts,setFiltredProducts]=useState([])
-  const [isLoading , setIsLoading] = useState(loading)
+  const [targetProduct, setTargetProduct] = useState({})
+  const [filtredProducts, setFiltredProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(loading)
 
   // ** change web title
   useGetLocation(id)
 
   // fetch apis
-  useEffect(()=>{
+  useEffect(() => {
     let result;
-    const getTargetProduct = async()=>{
+    const getTargetProduct = async () => {
       try {
         setIsLoading(true)
 
-        if(Number(id) >= 22 ) {
-          result = await axios.get(`https://my-server-rc7a.onrender.com/TrendyProducts/${id}`)
-        }
-        else {
-          result = await axios.get(`https://my-server-rc7a.onrender.com/Store/${id}`)
-        }
 
-        const response = await axios.get(`https://my-server-rc7a.onrender.com/Store?catigory=${result.data.catigory}`)
+        result = await axios.get(`http://localhost:5000/gallary-products?id=${id}`)
 
-        setTargetProduct(result.data)
+        const response = await axios.get(`http://localhost:5000/gallary-products?catigory=${result.data[0].catigory}`)
+
+        setTargetProduct(result.data[0])
         setFiltredProducts(response.data)
         setIsLoading(false)
 
@@ -61,37 +57,37 @@ const ProductDetails = () => {
     getTargetProduct()
 
     window.scrollTo({
-      top:0,
-      behavior:'smooth'
+      top: 0,
+      behavior: 'smooth'
     })
-  },[id])
+  }, [id])
 
   return (
     <>
-      <BreadCrumb title={targetProduct.name}/>
+      <BreadCrumb title={targetProduct.title} />
       <section className='my-5 py-4 overflow-hidden'>
         <div className="container">
-          {isLoading && <Loader/>}
-          <SingleProductDetails 
+          {isLoading && <Loader />}
+          <SingleProductDetails
             id={targetProduct.id}
             img={targetProduct.img}
-            name={targetProduct.name}
+            name={targetProduct.title}
             price={targetProduct.price}
             altPrice={targetProduct.altPrice}
             sales={targetProduct.sales}
             object={targetProduct}
           />
           <div className="tabs-details py-5 my-5">
-              <div className="row">
-                <TapsDetails/>
-              </div>
+            <div className="row">
+              <TapsDetails />
+            </div>
           </div>
           <div className="relatec-product">
             <h2 className='mb-5 ms-3'>Related Products</h2>
-            <CustomCarousel products={filtredProducts}/>
+            <CustomCarousel products={filtredProducts} />
           </div>
         </div>
-        
+
       </section>
     </>
   )
